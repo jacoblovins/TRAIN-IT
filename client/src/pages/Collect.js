@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import API from "../utils/API";
 import * as ml5 from 'ml5';
 import * as Webcam from 'react-webcam';
 
@@ -68,7 +69,7 @@ function Collect({ pose, brain }) {
         setTimeout(() => {
             status = 'not collecting';
             console.log(status);
-        }, 5000)
+        }, 2000)
     }
 
     function handleRecordRight() {
@@ -79,7 +80,7 @@ function Collect({ pose, brain }) {
         setTimeout(() => {
             status = 'not collecting';
             console.log(status);
-        }, 5000)
+        }, 2000)
     }
 
     function handleRecordUp() {
@@ -90,7 +91,7 @@ function Collect({ pose, brain }) {
         setTimeout(() => {
             status = 'not collecting';
             console.log(status);
-        }, 5000)
+        }, 2000)
     }
 
     function handleRecordDown() {
@@ -101,25 +102,28 @@ function Collect({ pose, brain }) {
         setTimeout(() => {
             status = 'not collecting';
             console.log(status);
-        }, 5000)
+        }, 2000)
     }
 
     async function handleSave() {
-        brain.saveData('training');
-        // const trainingData = JSON.stringify(brain.neuralNetworkData.data.raw)
-        // await saveTrain(trainingData, '/trainingModels/training.json')
+        // brain.saveData('training');
+        console.log("collect file")
+        const trainingData = brain.neuralNetworkData.data.raw
+        API.saveTrainingFile(trainingData)
     }
 
     function handleTrain() {
-        brain.loadData('training.json', dataReady);
+        brain.loadData('data/training.json', dataReady);
         
         function dataReady() {
             brain.normalizeData();
-            brain.train({epochs: 50}, finished)
+            brain.train({epochs: 10}, finished)
         }
+
         function finished() {
+            console.log(brain.neuralNetwork.model);
             console.log("model trained");
-            brain.save()
+            // brain.save()
         }
     }
 
