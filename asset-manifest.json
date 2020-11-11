@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/TRAIN-IT/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/TRAIN-IT/static/js/main.949aa6e3.chunk.js",
-    "main.js.map": "/TRAIN-IT/static/js/main.949aa6e3.chunk.js.map",
-    "runtime-main.js": "/TRAIN-IT/static/js/runtime-main.9e9b004c.js",
-    "runtime-main.js.map": "/TRAIN-IT/static/js/runtime-main.9e9b004c.js.map",
-    "static/js/2.6c2dd120.chunk.js": "/TRAIN-IT/static/js/2.6c2dd120.chunk.js",
-    "static/js/2.6c2dd120.chunk.js.map": "/TRAIN-IT/static/js/2.6c2dd120.chunk.js.map",
-    "static/js/3.f4c0ed9d.chunk.js": "/TRAIN-IT/static/js/3.f4c0ed9d.chunk.js",
-    "static/js/3.f4c0ed9d.chunk.js.map": "/TRAIN-IT/static/js/3.f4c0ed9d.chunk.js.map",
+    "main.js": "/TRAIN-IT/static/js/main.42f5683b.chunk.js",
+    "main.js.map": "/TRAIN-IT/static/js/main.42f5683b.chunk.js.map",
+    "runtime-main.js": "/TRAIN-IT/static/js/runtime-main.ff292aaf.js",
+    "runtime-main.js.map": "/TRAIN-IT/static/js/runtime-main.ff292aaf.js.map",
+    "static/js/2.196849bb.chunk.js": "/TRAIN-IT/static/js/2.196849bb.chunk.js",
+    "static/js/2.196849bb.chunk.js.map": "/TRAIN-IT/static/js/2.196849bb.chunk.js.map",
+    "static/js/3.b97ccf6e.chunk.js": "/TRAIN-IT/static/js/3.b97ccf6e.chunk.js",
+    "static/js/3.b97ccf6e.chunk.js.map": "/TRAIN-IT/static/js/3.b97ccf6e.chunk.js.map",
     "index.html": "/TRAIN-IT/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/TRAIN-IT/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.6c2dd120.chunk.js.LICENSE.txt": "/TRAIN-IT/static/js/2.6c2dd120.chunk.js.LICENSE.txt"
+    "static/js/2.196849bb.chunk.js.LICENSE.txt": "/TRAIN-IT/static/js/2.196849bb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9e9b004c.js",
-    "static/js/2.6c2dd120.chunk.js",
+    "static/js/runtime-main.ff292aaf.js",
+    "static/js/2.196849bb.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.949aa6e3.chunk.js"
+    "static/js/main.42f5683b.chunk.js"
   ]
 }
