@@ -3,7 +3,7 @@ import API from "../utils/API";
 import * as ml5 from 'ml5';
 import * as Webcam from 'react-webcam';
 
-let status = "waiting";
+let collecting = false;
 let targetLabel;
 let inputs;
 // let handpose
@@ -11,6 +11,8 @@ let inputs;
 let handpose;
 let brain;
 let pose;
+let classify = false
+const classifySpeed = 300;
 // let video
 
 function Collect({ pose, brain }) {
@@ -45,68 +47,84 @@ function Collect({ pose, brain }) {
         init()
     }, [])
 
+
     const detect = (poses) => {
-        if (poses.length > 0) {
-            // console.log(poses)
-            if (status === 'collecting') {
+        if (collecting || classify) {
+            if (poses.length > 0) {
                 inputs = [];
                 for (let i = 0; i < poses[0].landmarks.length; i++) {
                     inputs.push(poses[0].landmarks[i][0]);
                     inputs.push(poses[0].landmarks[i][1]);
                 }
+            }
+            if (collecting) {
                 console.log(inputs);
                 let target = [targetLabel];
                 brain.addData(inputs, target);
+            } else if (classify) {
+                brain.classify(inputs, gotResult)
             }
+
         }
-    };
+    }
+
+
+
+    // const detect = (poses) => {
+    //     if (poses.length > 0) {
+    //         // console.log(poses)
+    //         if (status === 'collecting' && classify === false) {
+    //             inputs = [];
+    //             for (let i = 0; i < poses[0].landmarks.length; i++) {
+    //                 inputs.push(poses[0].landmarks[i][0]);
+    //                 inputs.push(poses[0].landmarks[i][1]);
+    //             }
+    //             console.log(inputs);
+    //             let target = [targetLabel];
+    //             brain.addData(inputs, target);
+    //         } else if (pose && classify) {
+    //             inputs = [];
+    //             for (let i = 0; i < pose.landmarks.length; i++) {
+    //                 inputs.push(pose.landmarks[i][0]);
+    //                 inputs.push(pose.landmarks[i][1]);
+    //             }
+    //             brain.classify(inputs, gotResult)
+    //         }
+    //     }
+    // };
 
     // ==============================================================================================
     // COLLECT
     // ==============================================================================================
 
+    function collect() {
+        console.log(targetLabel);
+        collecting = true;
+        console.log("Collecting Data");
+        setTimeout(() => {
+            collecting = false;
+            console.log('Finished Collecting Data');
+        }, 2000)
+    }
+
     function handleRecordLeft() {
         targetLabel = "Left"
-        console.log(targetLabel);
-        status = "collecting";
-        console.log(status);
-        setTimeout(() => {
-            status = 'not collecting';
-            console.log(status);
-        }, 2000)
+        collect()
     }
 
     function handleRecordRight() {
         targetLabel = "Right"
-        console.log(targetLabel);
-        status = "collecting";
-        console.log(status);
-        setTimeout(() => {
-            status = 'not collecting';
-            console.log(status);
-        }, 2000)
+        collect()
     }
 
     function handleRecordUp() {
         targetLabel = "Up"
-        console.log(targetLabel);
-        status = "collecting";
-        console.log(status);
-        setTimeout(() => {
-            status = 'not collecting';
-            console.log(status);
-        }, 2000)
+        collect()
     }
 
     function handleRecordDown() {
         targetLabel = "Down"
-        console.log(targetLabel);
-        status = "collecting";
-        console.log(status);
-        setTimeout(() => {
-            status = 'not collecting';
-            console.log(status);
-        }, 2000)
+        collect()
     }
 
     // async function handleSave() {
@@ -131,6 +149,39 @@ function Collect({ pose, brain }) {
     // CLASSIFY
     // ==============================================================================================
 
+    let inter;
+
+    function startClass() {
+        classify = true
+        // inter = setInterval(() => {
+        //     classifyPose()
+        // }, classifySpeed);
+    }
+
+    function stopClass() {
+        classify = false
+        // clearInterval(inter)
+    }
+
+
+    // function classifyPose() {
+    //     // if (pose && classify) {
+    //     //     inputs = [];
+    //     //     for (let i = 0; i < pose.landmarks.length; i++) {
+    //     //         inputs.push(pose.landmarks[i][0]);
+    //     //         inputs.push(pose.landmarks[i][1]);
+    //     //     }
+    //     //     brain.classify(inputs, gotResult)
+    //     // } 
+    // }
+
+    function gotResult(error, results) {
+        if (results[0].confidence > 0.75) {
+            console.log(results[0].label)
+        }
+    }
+
+
 
     return (
         <div>
@@ -146,8 +197,10 @@ function Collect({ pose, brain }) {
                 <button onClick={() => handleRecordDown()}>record Down</button>
                 {/* <button onClick={() => handleSave()}>save</button> */}
                 <button onClick={() => handleTrain()}>train</button>
+                <button onClick={() => startClass()}>Classify</button>
+                <button onClick={() => stopClass()}>Stop</button>
             </div>
-            <div><h2>{status}</h2></div>
+            {/* <div><h2>{status}</h2></div> */}
         </div>
     )
 }
