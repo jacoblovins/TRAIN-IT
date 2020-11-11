@@ -7,6 +7,7 @@ let targetLabel;
 let inputs;
 let brain;
 let classify = false
+let finalGesture = "";
 // const classifySpeed = 300;
 const recordTime = 5
 
@@ -14,6 +15,7 @@ function Collect() {
 
     const [recordCount, setRecordCount] = useState(0)
     const [recordStatus, setRecordStatus] = useState("")
+    const [loadingStatus, setLoadingStatus] = useState("Please Wait! Loading...")
 
     const inputEl = useRef(null);
     const webcamRef = useRef(null);
@@ -39,6 +41,7 @@ function Collect() {
         const handpose = ml5.handpose(video, modelLoaded);
         function modelLoaded() {
             console.log('HandPose Model Loaded!');
+            setLoadingStatus("Step 1: Name and record at least 2 hand gestures!")
         }
         handpose.on('predict', detect);
     }
@@ -64,7 +67,6 @@ function Collect() {
             } else if (classify) {
                 brain.classify(inputs, gotResult)
             }
-
         }
     }
 
@@ -78,7 +80,9 @@ function Collect() {
         console.log("Collecting Data");
         setTimeout(() => {
             collecting = false;
-            console.log('Finished Collecting Data');
+            if(recordCount >= 1){
+                setLoadingStatus("Step 2: Click train and watch the Neural network learn!")
+            }
             setRecordStatus("")
         }, recordTime * 1000)
     }
@@ -93,8 +97,9 @@ function Collect() {
 
     function handleTrain() {
         brain.normalizeData();
-        brain.train({ epochs: 10 }, () => {
+        brain.train({ epochs: 30 }, () => {
             console.log("model trained");
+            setLoadingStatus("Step 3: Click the classify button to try it out or click save to download your trained files!")
         })
     }
 
@@ -107,19 +112,24 @@ function Collect() {
 
     function startClass() {
         classify = true
-        // inter = setInterval(() => {
-        //     classifyPose()
-        // }, classifySpeed);
+        displayClass()
+    }
+
+    function displayClass() {
+        setInterval(() => {
+            setRecordStatus(finalGesture);
+        }, 300)
     }
 
     function stopClass() {
-        classify = false
-        // clearInterval(inter)
+        classify = false;
+        finalGesture = "";
     }
 
     function gotResult(error, results) {
-        if (results[0].confidence > 0.75) {
-            console.log(results[0].label)
+        if (results[0].confidence > 0.87) {
+            console.log(results[0].label);
+            finalGesture = results[0].label;
 
         }
     }
@@ -131,6 +141,12 @@ function Collect() {
 
     return (
         <div>
+            <nav>
+                <h1>TRAIN-IT</h1>
+            </nav>
+            <div>
+                <h2>{loadingStatus}</h2>
+            </div>
 
             <Webcam ref={webcamRef}
                 audio={false}
