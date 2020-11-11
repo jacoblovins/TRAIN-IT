@@ -5,6 +5,7 @@ import * as ml5 from 'ml5';
 let brain;
 let inputs;
 let pose;
+const classifySpeed = 300;
 
 function Classify() {
     let working = false;
@@ -60,7 +61,7 @@ function Classify() {
         working = true
         inter = setInterval(() => {
             classifyPose()
-        }, 300);
+        }, classifySpeed);
     }
 
     function stopClass() {

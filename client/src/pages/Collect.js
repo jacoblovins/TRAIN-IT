@@ -61,6 +61,10 @@ function Collect({ pose, brain }) {
         }
     };
 
+    // ==============================================================================================
+    // COLLECT
+    // ==============================================================================================
+
     function handleRecordLeft() {
         targetLabel = "Left"
         console.log(targetLabel);
@@ -105,27 +109,27 @@ function Collect({ pose, brain }) {
         }, 2000)
     }
 
-    async function handleSave() {
-        // brain.saveData('training');
-        console.log("collect file")
-        const trainingData = brain.neuralNetworkData.data.raw
-        API.saveTrainingFile(trainingData)
-    }
+    // async function handleSave() {
+    //     // brain.saveData('training');
+    //     console.log("collect file")
+    //     const trainingData = brain.neuralNetworkData.data.raw
+    //     API.saveTrainingFile(trainingData)
+    // }
 
     function handleTrain() {
-        brain.loadData('data/training.json', dataReady);
-        
-        function dataReady() {
-            brain.normalizeData();
-            brain.train({epochs: 10}, finished)
-        }
-
-        function finished() {
-            console.log(brain.neuralNetwork.model);
-            console.log("model trained");
-            // brain.save()
-        }
+        brain.normalizeData();
+        brain.train({ epochs: 10 }, finished)
     }
+
+    function finished() {
+        // console.log(brain);
+        console.log("model trained");
+        // brain.save()
+    }
+
+    // ==============================================================================================
+    // CLASSIFY
+    // ==============================================================================================
 
 
     return (
@@ -140,7 +144,7 @@ function Collect({ pose, brain }) {
                 <button onClick={() => handleRecordRight()}>record Right</button>
                 <button onClick={() => handleRecordUp()}>record Up</button>
                 <button onClick={() => handleRecordDown()}>record Down</button>
-                <button onClick={() => handleSave()}>save</button>
+                {/* <button onClick={() => handleSave()}>save</button> */}
                 <button onClick={() => handleTrain()}>train</button>
             </div>
             <div><h2>{status}</h2></div>
