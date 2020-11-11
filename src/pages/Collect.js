@@ -1,21 +1,20 @@
 import React, { useRef, useEffect } from 'react'
-import API from "../utils/API";
 import * as ml5 from 'ml5';
 import * as Webcam from 'react-webcam';
 
 let collecting = false;
 let targetLabel;
 let inputs;
-// let handpose
 
-let handpose;
+// let handpose;
 let brain;
-let pose;
+// let pose;
 let classify = false
-const classifySpeed = 300;
+// const classifySpeed = 300;
+const recordTime = 5
 // let video
 
-function Collect({ pose, brain }) {
+function Collect() {
     const webcamRef = useRef(null);
 
     const init = async () => {
@@ -36,7 +35,7 @@ function Collect({ pose, brain }) {
 
         brain = ml5.neuralNetwork(options);
 
-        handpose = ml5.handpose(video, modelLoaded);
+        const handpose = ml5.handpose(video, modelLoaded);
         function modelLoaded() {
             console.log('HandPose Model Loaded!');
         }
@@ -79,7 +78,7 @@ function Collect({ pose, brain }) {
         setTimeout(() => {
             collecting = false;
             console.log('Finished Collecting Data');
-        }, 2000)
+        }, recordTime * 1000)
     }
 
     function handleRecordLeft() {
@@ -105,12 +104,9 @@ function Collect({ pose, brain }) {
 
     function handleTrain() {
         brain.normalizeData();
-        brain.train({ epochs: 10 }, finished)
-    }
-
-    function finished() {
-        // console.log(brain);
-        console.log("model trained");
+        brain.train({ epochs: 10 }, () => {
+            console.log("model trained");
+        })
     }
 
 
@@ -131,18 +127,6 @@ function Collect({ pose, brain }) {
         classify = false
         // clearInterval(inter)
     }
-
-
-    // function classifyPose() {
-    //     // if (pose && classify) {
-    //     //     inputs = [];
-    //     //     for (let i = 0; i < pose.landmarks.length; i++) {
-    //     //         inputs.push(pose.landmarks[i][0]);
-    //     //         inputs.push(pose.landmarks[i][1]);
-    //     //     }
-    //     //     brain.classify(inputs, gotResult)
-    //     // } 
-    // }
 
     function gotResult(error, results) {
         if (results[0].confidence > 0.75) {
