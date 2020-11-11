@@ -7,7 +7,7 @@
 
 This neural network training application.....
 
-## [Click Here to check it out!]()
+## [Click Here to check it out!](https://jacoblovins.github.io/TRAIN-IT/)
 
 
 ​![TRAIN-IT](images/googleBooksSearch.png)
