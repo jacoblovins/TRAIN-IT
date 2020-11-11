@@ -68,31 +68,6 @@ function Collect({ pose, brain }) {
         }
     }
 
-
-
-    // const detect = (poses) => {
-    //     if (poses.length > 0) {
-    //         // console.log(poses)
-    //         if (status === 'collecting' && classify === false) {
-    //             inputs = [];
-    //             for (let i = 0; i < poses[0].landmarks.length; i++) {
-    //                 inputs.push(poses[0].landmarks[i][0]);
-    //                 inputs.push(poses[0].landmarks[i][1]);
-    //             }
-    //             console.log(inputs);
-    //             let target = [targetLabel];
-    //             brain.addData(inputs, target);
-    //         } else if (pose && classify) {
-    //             inputs = [];
-    //             for (let i = 0; i < pose.landmarks.length; i++) {
-    //                 inputs.push(pose.landmarks[i][0]);
-    //                 inputs.push(pose.landmarks[i][1]);
-    //             }
-    //             brain.classify(inputs, gotResult)
-    //         }
-    //     }
-    // };
-
     // ==============================================================================================
     // COLLECT
     // ==============================================================================================
@@ -127,12 +102,6 @@ function Collect({ pose, brain }) {
         collect()
     }
 
-    // async function handleSave() {
-    //     // brain.saveData('training');
-    //     console.log("collect file")
-    //     const trainingData = brain.neuralNetworkData.data.raw
-    //     API.saveTrainingFile(trainingData)
-    // }
 
     function handleTrain() {
         brain.normalizeData();
@@ -142,8 +111,8 @@ function Collect({ pose, brain }) {
     function finished() {
         // console.log(brain);
         console.log("model trained");
-        // brain.save()
     }
+
 
     // ==============================================================================================
     // CLASSIFY
@@ -182,6 +151,9 @@ function Collect({ pose, brain }) {
     }
 
 
+    async function handleSave() {
+        brain.save()
+    }
 
     return (
         <div>
@@ -195,10 +167,10 @@ function Collect({ pose, brain }) {
                 <button onClick={() => handleRecordRight()}>record Right</button>
                 <button onClick={() => handleRecordUp()}>record Up</button>
                 <button onClick={() => handleRecordDown()}>record Down</button>
-                {/* <button onClick={() => handleSave()}>save</button> */}
                 <button onClick={() => handleTrain()}>train</button>
                 <button onClick={() => startClass()}>Classify</button>
                 <button onClick={() => stopClass()}>Stop</button>
+                <button onClick={() => handleSave()}>save files to downloads</button>
             </div>
             {/* <div><h2>{status}</h2></div> */}
         </div>
