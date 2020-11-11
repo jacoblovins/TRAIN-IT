@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import * as ml5 from 'ml5';
 import * as Webcam from 'react-webcam';
 
@@ -15,6 +15,11 @@ const recordTime = 5
 // let video
 
 function Collect() {
+
+    const [recordCount, setRecordCount] = useState(0)
+    const [recordStatus, setRecordStatus] = useState("")
+
+    const inputEl = useRef(null);
     const webcamRef = useRef(null);
 
     const init = async () => {
@@ -28,7 +33,7 @@ function Collect() {
 
         let options = {
             inputs: 42,
-            outputs: 4,
+            outputs: recordCount,
             task: 'classification',
             debug: true
         }
@@ -78,26 +83,14 @@ function Collect() {
         setTimeout(() => {
             collecting = false;
             console.log('Finished Collecting Data');
+            setRecordStatus("")
         }, recordTime * 1000)
     }
 
-    function handleRecordLeft() {
-        targetLabel = "Left"
-        collect()
-    }
-
-    function handleRecordRight() {
-        targetLabel = "Right"
-        collect()
-    }
-
-    function handleRecordUp() {
-        targetLabel = "Up"
-        collect()
-    }
-
-    function handleRecordDown() {
-        targetLabel = "Down"
+    function handleRecord() {
+        setRecordCount(recordCount + 1)
+        targetLabel = inputEl.current.value
+        setRecordStatus("Recording")
         collect()
     }
 
@@ -131,6 +124,7 @@ function Collect() {
     function gotResult(error, results) {
         if (results[0].confidence > 0.75) {
             console.log(results[0].label)
+            
         }
     }
 
@@ -141,22 +135,28 @@ function Collect() {
 
     return (
         <div>
+
             <Webcam ref={webcamRef}
                 style={{
                     width: 640,
                     height: 480,
                 }} />
             <div>
-                <button onClick={() => handleRecordLeft()}>record Left</button>
-                <button onClick={() => handleRecordRight()}>record Right</button>
-                <button onClick={() => handleRecordUp()}>record Up</button>
-                <button onClick={() => handleRecordDown()}>record Down</button>
+                <div>
+                    <h2>{recordStatus}</h2>
+                </div>
+                <div>
+                    <input ref={inputEl} type="text" />
+                    <button onClick={handleRecord}>Record</button>
+                </div>
+                <div>
+                    <div><h2>{recordCount + " Hand Gestures Recorded!"}</h2></div>
+                </div>
                 <button onClick={() => handleTrain()}>train</button>
                 <button onClick={() => startClass()}>Classify</button>
                 <button onClick={() => stopClass()}>Stop</button>
                 <button onClick={() => handleSave()}>save files to downloads</button>
             </div>
-            {/* <div><h2>{status}</h2></div> */}
         </div>
     )
 }
