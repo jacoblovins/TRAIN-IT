@@ -5,14 +5,10 @@ import * as Webcam from 'react-webcam';
 let collecting = false;
 let targetLabel;
 let inputs;
-
-// let handpose;
 let brain;
-// let pose;
 let classify = false
 // const classifySpeed = 300;
 const recordTime = 5
-// let video
 
 function Collect() {
 
@@ -124,7 +120,7 @@ function Collect() {
     function gotResult(error, results) {
         if (results[0].confidence > 0.75) {
             console.log(results[0].label)
-            
+
         }
     }
 
@@ -137,6 +133,8 @@ function Collect() {
         <div>
 
             <Webcam ref={webcamRef}
+                audio={false}
+                mirrored={true}
                 style={{
                     width: 640,
                     height: 480,
