@@ -2,7 +2,7 @@
   "name": "train-it",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://myusername.github.io/train-it",
+  "homepage": "https://myusername.github.io/TRAIN-IT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
