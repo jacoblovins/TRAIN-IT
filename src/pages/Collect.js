@@ -9,7 +9,7 @@ let brain;
 let classify = false
 let finalGesture = "";
 // const classifySpeed = 300;
-const recordTime = 5
+const recordTime = 7
 
 function Collect() {
 
@@ -94,13 +94,19 @@ function Collect() {
         collect()
     }
 
+    function handleReset() {
+        window.location.reload();
+    }
+
 
     function handleTrain() {
-        brain.normalizeData();
-        brain.train({ epochs: 30 }, () => {
-            console.log("model trained");
-            setLoadingStatus("Step 3: Click the classify button to try it out or click save to download your trained files!")
-        })
+        if(recordCount > 1){
+            brain.normalizeData();
+            brain.train({ epochs: 30 }, () => {
+                console.log("model trained");
+                setLoadingStatus("Step 3: Click the classify button to try it out or click save to download your trained files!");
+            });
+        }
     }
 
 
@@ -162,6 +168,7 @@ function Collect() {
                 <div>
                     <input ref={inputEl} type="text" />
                     <button onClick={handleRecord}>Record</button>
+                    <button onClick={handleReset}>RESET</button>
                 </div>
                 <div>
                     <div><h2>{recordCount + " Hand Gestures Recorded!"}</h2></div>
