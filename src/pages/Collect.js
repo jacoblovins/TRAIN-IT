@@ -6,10 +6,13 @@ let collecting = false;
 let targetLabel;
 let inputs;
 let brain;
-let classify = false
+let classify = false;
 let finalGesture = "";
 // const classifySpeed = 300;
-const recordTime = 7
+const recordTime = 7;
+let recordReady = false;
+const gestureLabels = [];
+
 
 function Collect() {
 
@@ -52,8 +55,9 @@ function Collect() {
 
 
     const detect = (poses) => {
-        if (collecting || classify) {
-            if (poses.length > 0) {
+        if (poses.length > 0) {
+            recordReady = true
+            if (collecting || classify) {
                 inputs = [];
                 for (let i = 0; i < poses[0].landmarks.length; i++) {
                     inputs.push(poses[0].landmarks[i][0]);
@@ -67,6 +71,8 @@ function Collect() {
             } else if (classify) {
                 brain.classify(inputs, gotResult)
             }
+        } else {
+            recordReady = false
         }
     }
 
@@ -80,18 +86,27 @@ function Collect() {
         console.log("Collecting Data");
         setTimeout(() => {
             collecting = false;
-            if(recordCount >= 1){
+            if (recordCount >= 1) {
                 setLoadingStatus("Step 2: Click train and watch the Neural network learn!")
             }
             setRecordStatus("")
+            if (!gestureLabels.includes(targetLabel)) {
+                setRecordCount(recordCount + 1)
+            }
+            gestureLabels.push(targetLabel)
         }, recordTime * 1000)
     }
 
     function handleRecord() {
-        setRecordCount(recordCount + 1)
-        targetLabel = inputEl.current.value
-        setRecordStatus("Recording")
-        collect()
+        if (!recordReady) {
+            alert("Please place your hand in view of the camera before recording")
+        } else {
+            // setRecordCount(recordCount + 1)
+            targetLabel = inputEl.current.value
+            // gestureLabels.push(targetLabel)
+            setRecordStatus("Recording")
+            collect()
+        }
     }
 
     function handleReset() {
@@ -100,7 +115,7 @@ function Collect() {
 
 
     function handleTrain() {
-        if(recordCount > 1){
+        if (recordCount > 1) {
             brain.normalizeData();
             brain.train({ epochs: 30 }, () => {
                 console.log("model trained");
