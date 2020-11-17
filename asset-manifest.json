@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/TRAIN-IT/static/css/main.ab1fa09f.chunk.css",
-    "main.js": "/TRAIN-IT/static/js/main.11cd652e.chunk.js",
-    "main.js.map": "/TRAIN-IT/static/js/main.11cd652e.chunk.js.map",
+    "main.css": "/TRAIN-IT/static/css/main.aa40a268.chunk.css",
+    "main.js": "/TRAIN-IT/static/js/main.2dfa1ac7.chunk.js",
+    "main.js.map": "/TRAIN-IT/static/js/main.2dfa1ac7.chunk.js.map",
     "runtime-main.js": "/TRAIN-IT/static/js/runtime-main.406eece0.js",
     "runtime-main.js.map": "/TRAIN-IT/static/js/runtime-main.406eece0.js.map",
     "static/js/2.196849bb.chunk.js": "/TRAIN-IT/static/js/2.196849bb.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.07761226.chunk.js": "/TRAIN-IT/static/js/3.07761226.chunk.js",
     "static/js/3.07761226.chunk.js.map": "/TRAIN-IT/static/js/3.07761226.chunk.js.map",
     "index.html": "/TRAIN-IT/index.html",
-    "static/css/main.ab1fa09f.chunk.css.map": "/TRAIN-IT/static/css/main.ab1fa09f.chunk.css.map",
+    "static/css/main.aa40a268.chunk.css.map": "/TRAIN-IT/static/css/main.aa40a268.chunk.css.map",
     "static/js/2.196849bb.chunk.js.LICENSE.txt": "/TRAIN-IT/static/js/2.196849bb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.406eece0.js",
     "static/js/2.196849bb.chunk.js",
-    "static/css/main.ab1fa09f.chunk.css",
-    "static/js/main.11cd652e.chunk.js"
+    "static/css/main.aa40a268.chunk.css",
+    "static/js/main.2dfa1ac7.chunk.js"
   ]
 }
