@@ -2,9 +2,11 @@ body {
   background-color: #99ffcc;
 }
 
-#webcam {
+#video {
   float: right;
   margin-right: 10%;
+  text-align: center;
+  justify-content: center;
 }
 
 .instructions {

@@ -9,7 +9,7 @@ let brain;
 let classify = false;
 let finalGesture = "";
 // const classifySpeed = 300;
-const recordTime = 70;
+const recordTime = 7;
 let recordReady = false;
 const gestureLabels = [];
 
@@ -168,7 +168,7 @@ function Collect() {
             <div>
                 <h1 className="instructions">{recordCount + " Hand Gestures Recorded!"}</h1>
             </div>
-            <div className="video">
+            <div id="video">
                 <Webcam id="webcam" ref={webcamRef}
                     audio={false}
                     mirrored={true}
@@ -176,6 +176,7 @@ function Collect() {
                         width: 640,
                         height: 480,
                     }} />
+                    <h2>{recordStatus}</h2>
             </div>
             <div id="input">
                 <div>
