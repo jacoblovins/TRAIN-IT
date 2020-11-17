@@ -1,38 +1,38 @@
-.App {
+body {
+  background-color: #99ffcc;
+}
+
+#webcam {
+  float: right;
+  margin-right: 10%;
+}
+
+.instructions {
+  margin-top: 50px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#input {
+  margin-top: 80px;
+  margin-left: 10%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  width: 200px;
+  height: 20px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button {
+  height: 30px;
+  border-radius: 15px;
+  font-size: 18px;
+  margin-top: 20px;
 }
+/* .App {
+  text-align: center;
+} */
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

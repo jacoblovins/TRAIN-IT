@@ -9,7 +9,7 @@ let brain;
 let classify = false;
 let finalGesture = "";
 // const classifySpeed = 300;
-const recordTime = 7;
+const recordTime = 70;
 let recordReady = false;
 const gestureLabels = [];
 
@@ -162,36 +162,44 @@ function Collect() {
 
     return (
         <div>
-            <nav>
-                <h1>TRAIN-IT</h1>
-            </nav>
             <div>
-                <h2>{loadingStatus}</h2>
+                <h1 className="instructions">{loadingStatus}</h1>
             </div>
-
-            <Webcam ref={webcamRef}
-                audio={false}
-                mirrored={true}
-                style={{
-                    width: 640,
-                    height: 480,
-                }} />
             <div>
+                <h1 className="instructions">{recordCount + " Hand Gestures Recorded!"}</h1>
+            </div>
+            <div className="video">
+                <Webcam id="webcam" ref={webcamRef}
+                    audio={false}
+                    mirrored={true}
+                    style={{
+                        width: 640,
+                        height: 480,
+                    }} />
+            </div>
+            <div id="input">
                 <div>
                     <h2>{recordStatus}</h2>
                 </div>
                 <div>
                     <input ref={inputEl} type="text" />
-                    <button onClick={handleRecord}>Record</button>
-                    <button onClick={handleReset}>RESET</button>
                 </div>
                 <div>
-                    <div><h2>{recordCount + " Hand Gestures Recorded!"}</h2></div>
+                    <button className="btn" onClick={handleRecord}>RECORD</button>
                 </div>
-                <button onClick={() => handleTrain()}>train</button>
-                <button onClick={() => startClass()}>Classify</button>
-                <button onClick={() => stopClass()}>Stop</button>
-                <button onClick={() => handleSave()}>save files to downloads</button>
+                <div>
+
+                    <button onClick={() => handleTrain()}>TRAIN</button>
+                </div>
+                <div>
+                    <button onClick={() => startClass()}>CLASSIFY</button>
+                </div>
+                <div>
+                    <button onClick={() => handleSave()}>DOWNLOAD FILES</button>
+                </div>
+                <div>
+                    <button onClick={handleReset}>RESET</button>
+                </div>
             </div>
         </div>
     )
