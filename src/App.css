@@ -1,40 +1,72 @@
 body {
-  background-color: #99ffcc;
+  background-color: #ADEFD1;
+  padding: 0;
+  margin: 0;
 }
 
 #video {
   float: right;
-  margin-right: 10%;
+  margin-right: 15%;
+  margin-top: 10px;
   text-align: center;
   justify-content: center;
+  background-color: #00203F;
+  border-radius: 20px;
+  padding-top: 0px;
+  color: #FFFFFF;
 }
 
 .instructions {
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
 }
 
 #input {
-  margin-top: 80px;
+  margin-top: 25px;
   margin-left: 10%;
 }
 
 input {
   width: 200px;
-  height: 20px;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 25px;
+  height: 42px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
 }
 
 button {
-  height: 30px;
-  border-radius: 15px;
-  font-size: 18px;
-  margin-top: 20px;
+  background-color: #00203F;
+  height: 42px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  color: #FFFFFF;
 }
-/* .App {
-  text-align: center;
-} */
 
+#record {
+  width: 90px;
+  font-weight: bold;
+}
+#train {
+  width: 96px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+#try {
+  width: 122px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+#download {
+  width: 191px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+#delete {
+  width: 281px;
+  font-weight: bold;
+  background-color: #ED2B33;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 

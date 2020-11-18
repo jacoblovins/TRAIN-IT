@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import * as ml5 from 'ml5';
 import * as Webcam from 'react-webcam';
+import Loader from "../components/Loader";
 
 let collecting = false;
 let targetLabel;
@@ -17,11 +18,17 @@ const gestureLabels = [];
 function Collect() {
 
     const [recordCount, setRecordCount] = useState(0)
-    const [recordStatus, setRecordStatus] = useState("")
+    const [recordStatus, setRecordStatus] = useState("  ")
     const [loadingStatus, setLoadingStatus] = useState("Please Wait! Loading...")
-
+    const [loading, setLoading] = useState(true)
     const inputEl = useRef(null);
     const webcamRef = useRef(null);
+
+    const poseParameters = {
+        webcamWidth: 0,
+        webcamHeight: 0,
+        videoHidden: false,
+    };
 
     const init = async () => {
         const video = webcamRef.current.video;
@@ -45,6 +52,9 @@ function Collect() {
         function modelLoaded() {
             console.log('HandPose Model Loaded!');
             setLoadingStatus("Step 1: Name and record at least 2 hand gestures!")
+            poseParameters.webcamWidth = 640;
+            poseParameters.webcamHeight = 480;
+            setLoading(false);
         }
         handpose.on('predict', detect);
     }
@@ -165,41 +175,37 @@ function Collect() {
             <div>
                 <h1 className="instructions">{loadingStatus}</h1>
             </div>
-            <div>
-                <h1 className="instructions">{recordCount + " Hand Gestures Recorded!"}</h1>
-            </div>
             <div id="video">
+                <h2>{recordStatus}</h2>
+                {loading ? (<Loader />) : null}
                 <Webcam id="webcam" ref={webcamRef}
                     audio={false}
                     mirrored={true}
                     style={{
                         width: 640,
-                        height: 480,
+                        height: 480
                     }} />
-                    <h2>{recordStatus}</h2>
             </div>
             <div id="input">
                 <div>
-                    <h2>{recordStatus}</h2>
+                    <h2>{collecting ? recordStatus : (recordCount + " Hand Gestures Recorded!")}</h2>
                 </div>
                 <div>
-                    <input ref={inputEl} type="text" />
-                </div>
-                <div>
-                    <button className="btn" onClick={handleRecord}>RECORD</button>
+                    <input ref={inputEl} type="text" placeholder="Thumbs Up" />
+                    <button id="record" className="btn" onClick={handleRecord}>Record</button>
                 </div>
                 <div>
 
-                    <button onClick={() => handleTrain()}>TRAIN</button>
+                    <button id="train" onClick={() => handleTrain()}>Train</button>
                 </div>
                 <div>
-                    <button onClick={() => startClass()}>CLASSIFY</button>
+                    <button id="try" onClick={() => startClass()}>Try It Out</button>
                 </div>
                 <div>
-                    <button onClick={() => handleSave()}>DOWNLOAD FILES</button>
+                    <button id="download" onClick={() => handleSave()}>Download Your Model</button>
                 </div>
                 <div>
-                    <button onClick={handleReset}>RESET</button>
+                    <button id="delete" onClick={handleReset}>Delete Gestures and Start Again</button>
                 </div>
             </div>
         </div>
