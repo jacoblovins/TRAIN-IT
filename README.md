@@ -1,4 +1,4 @@
-# HAND-IT
+# TRAIN-IT
       
     
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
