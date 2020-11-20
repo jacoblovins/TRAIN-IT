@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/TRAIN-IT/static/css/main.52a02495.chunk.css",
+    "main.css": "/TRAIN-IT/static/css/main.480253d5.chunk.css",
     "main.js": "/TRAIN-IT/static/js/main.bb45a1c9.chunk.js",
     "main.js.map": "/TRAIN-IT/static/js/main.bb45a1c9.chunk.js.map",
     "runtime-main.js": "/TRAIN-IT/static/js/runtime-main.44e861d4.js",
@@ -10,14 +10,14 @@
     "static/js/3.11f6a4e7.chunk.js": "/TRAIN-IT/static/js/3.11f6a4e7.chunk.js",
     "static/js/3.11f6a4e7.chunk.js.map": "/TRAIN-IT/static/js/3.11f6a4e7.chunk.js.map",
     "index.html": "/TRAIN-IT/index.html",
-    "static/css/main.52a02495.chunk.css.map": "/TRAIN-IT/static/css/main.52a02495.chunk.css.map",
+    "static/css/main.480253d5.chunk.css.map": "/TRAIN-IT/static/css/main.480253d5.chunk.css.map",
     "static/js/2.0b7b65a3.chunk.js.LICENSE.txt": "/TRAIN-IT/static/js/2.0b7b65a3.chunk.js.LICENSE.txt",
     "static/media/hand.8e1857be.png": "/TRAIN-IT/static/media/hand.8e1857be.png"
   },
   "entrypoints": [
     "static/js/runtime-main.44e861d4.js",
     "static/js/2.0b7b65a3.chunk.js",
-    "static/css/main.52a02495.chunk.css",
+    "static/css/main.480253d5.chunk.css",
     "static/js/main.bb45a1c9.chunk.js"
   ]
 }
