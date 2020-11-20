@@ -5,7 +5,7 @@
 
 ## Description
 
-This gesture training app allows the user to have a hands on experience with training a neural network to recognize hand gestures. This can be fun to interract with, and when used in conjunction with HAND-IT can be a powerful tool that adds custom hand gesture control to your React.js applications.  Using the power of Tensorflow.js and ML5, this application will train itself with your own hand gestures and recognize them based on the names you input.
+This gesture training app allows the user to have a hands on experience with training a neural network to recognize hand gestures. This can be fun to interract with, and when used in conjunction with [HAND-IT](https://www.npmjs.com/package/hand-it) can be a powerful tool that adds custom hand gesture control to your React.js applications.  Using the power of Tensorflow.js and ML5, this application will train itself with your own hand gestures and recognize them based on the names you input.
 
 
 ​![HAND-IT](./images/classify.png)
@@ -28,7 +28,7 @@ This gesture training app allows the user to have a hands on experience with tra
 1. Name and record at least 2 different hand gestures. (The more gestures you record, the more accurate the app will be)
 2. Click the "Train" button and watch the neural network learn your hand gestures. You can see the margin of error decrease on the graph as it learns.
 3. Once the training reaches 30 epochs, you can click "Try It Out" to see it work. Hold any of the gestures you've recorded in front of the camera and watch the application accurately guess what gesture you are holding up.
-4. (Optional) If you are making your own hand controlled React.js application using HAND-IT, you can click "Download Your Model" and the files you need will be dowloaded into your downloads folder.
+4. (Optional) If you are making your own hand controlled React.js application using [HAND-IT](https://www.npmjs.com/package/hand-it), you can click "Download Your Model" and the files you need will be dowloaded into your downloads folder.
 
 
 ## Sample Hand Gestures
