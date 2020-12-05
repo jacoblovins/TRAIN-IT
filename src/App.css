@@ -1,7 +1,11 @@
 body {
-  background-color: #ADEFD1;
   padding: 0;
   margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Jost", sans-serif;
 }
 
 #video {

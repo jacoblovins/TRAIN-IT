@@ -151,7 +151,7 @@ function Collect() {
     }
 
     return (
-        <div>
+        <div id="main-train">
             <div>
                 <h1 className="instructions">{loadingStatus}</h1>
             </div>
