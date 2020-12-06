@@ -1,0 +1,26 @@
+/* Get Startet Button */
+.get-started-btn {
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 25px 7px 25px;
+    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;
+    display: inline-block;
+    background: rgb(0, 69, 94);
+    font-weight: 600;
+}
+  
+.get-started-btn:hover {
+    background: rgba(0, 251, 251, 0.582);
+    color: #fff;
+    text-decoration: none;
+}
+  
+@media (max-width: 768px) {
+    .get-started-btn {
+      padding: 6px 20px 7px 20px;
+    }
+}
+
+  

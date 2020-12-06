@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css';
 import Collect from './pages/Collect';
-import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero';
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Hero />
       <Collect />
     </div>
   );

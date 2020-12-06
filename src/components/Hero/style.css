@@ -1,0 +1,80 @@
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+    background: rgb(1, 6, 34);
+    height: 100vh;
+    padding-left: 30px;
+}
+
+#hero .hleft {
+    padding-top: 50vh;
+}
+
+#hero h1 {
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    line-height: 56px;
+    color: rgb(0, 219, 226);
+}
+
+#hero h3 {
+    color: white;
+    margin-bottom: 50px;
+}
+
+#hero img {
+    padding-top: 10vh;
+    max-width: 500px;
+    height: auto;
+}
+
+#hero .animated {
+    animation: pulse 3s linear infinite;
+}
+
+@media (max-width: 991px) {
+    #hero {
+        height: 100vh;
+        text-align: center;
+        padding-left: 0px;
+    }
+    #hero .hleft {
+        padding-top: 90px;
+    }
+    #hero .hero-img {
+        padding-top: 0;
+        text-align: center;
+    }
+    #hero .hero-img img {
+    width: 60%;
+    padding-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+        #hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+        #hero h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+        #hero .hero-img img {
+        width: 60%;
+    }    
+}
+
+@-webkit-keyframes pulse {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1); }
+    100% { transform: scale(0.95); }
+}
+  
+  @keyframes pulse {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1); }
+    100% { transform: scale(0.95); }
+}
