@@ -1,4 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { FaCircle } from "react-icons/fa";
 import * as ml5 from 'ml5';
 import * as Webcam from 'react-webcam';
 import Loader from "../components/Loader";
@@ -17,7 +21,7 @@ function Collect() {
 
     const [recordCount, setRecordCount] = useState(0);
     const [recordStatus, setRecordStatus] = useState("");
-    const [loadingStatus, setLoadingStatus] = useState("Please Wait! Loading...");
+    const [loadingStatus, setLoadingStatus] = useState("Just a moment, Train-IT is loading...");
     const [loading, setLoading] = useState(true);
     const [recordReady, setRecordReady] = useState(false);
     const [gestureLabels, setGestureLabels] = useState([]);
@@ -42,7 +46,7 @@ function Collect() {
         const handpose = ml5.handpose(video, modelLoaded);
         function modelLoaded() {
             console.log('HandPose Model Loaded!');
-            setLoadingStatus("Step 1: Name and record at least 2 hand gestures!");
+            setLoadingStatus("Ready. Follow the steps below.");
             setLoading(false);
         }
         handpose.on('predict', detect);
@@ -50,7 +54,7 @@ function Collect() {
 
     useEffect(() => {
         init();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -86,7 +90,7 @@ function Collect() {
         setTimeout(() => {
             collecting = false;
             if (recordCount >= 1) {
-                setLoadingStatus("Step 2: Click train and watch the Neural network learn!");
+                setLoadingStatus("Train-IT is ready to be trained.");
             }
             setRecordStatus("");
             console.log("Finished Collecting");
@@ -117,7 +121,7 @@ function Collect() {
             brain.normalizeData();
             brain.train({ epochs: 30 }, () => {
                 console.log("model trained");
-                setLoadingStatus("Step 3: Click the Try It Out button and watch it guess or click save to download your trained files!");
+                setLoadingStatus("Training Complete");
             });
         }
     }
@@ -155,39 +159,54 @@ function Collect() {
             <div>
                 <h1 className="instructions">{loadingStatus}</h1>
             </div>
-            <div id="video">
-                <h2>{recordStatus}</h2>
-                {loading ? (<Loader />) : null}
-                <Webcam id="webcam" ref={webcamRef}
-                    audio={false}
-                    mirrored={true}
-                    style={{
-                        width: 640,
-                        height: 480
-                    }} />
-            </div>
-            <div id="input">
-                <div>
-                    <h2>{collecting ? recordStatus : (recordCount + " Hand Gestures Recorded!")}</h2>
-                </div>
-                <div>
-                    <input ref={inputEl} type="text" placeholder="Thumbs Up" />
-                    <button id="record" className="btn" onClick={handleRecord}>Record</button>
-                </div>
-                <div>
+            <Container fluid>
+                <Row>
+                    <Col lg={6}>
+                        <div id="input">
+                            <div>
+                                <h2>{collecting ? recordStatus : (recordCount + " Hand Gestures Recorded")}</h2>
+                            </div>
+                            <div className="step">
+                                <h6>Step 1. Name your gesture</h6>
+                                <input id="gInput" ref={inputEl} type="text" placeholder="e.g. Thumbs Up" />
+                            </div>
+                            <div className="step">
+                                <h6>Step 2. Hold up your hand to the camera and click Record. Repeat Step 1 & 2 for at least 2 gestures.</h6>
+                                <button className="any-btn" onClick={handleRecord}><FaCircle/> Record</button>
+                            </div>
+                            <div className="step">
+                                <h6>Step 3. Register your data with Train-It. Watch as the neural network learns your gesture.</h6>
+                                <button className="any-btn" onClick={() => handleTrain()}>Train</button>
+                            </div>
+                            <div className="step">
+                                <h6>Step 4. Once the training reaches 30 epochs, click "Try It Out" and hold up your gestures for validation.</h6>
+                                <button className="any-btn" onClick={() => startClass()}>Try It Out</button>
+                            </div>
+                            <div className="step">
+                                <h6>Step 5. Download your model data and use it in your app!</h6>
+                                <button className="any-btn" onClick={() => handleSave()}>Download Your Model</button>
+                            </div>
+                            <div>
+                                <button id="delete" className="any-btn" onClick={handleReset}>Delete Gestures and Start Again</button>
+                            </div>
+                        </div>
+                    </Col>
+                    <Col lg={6}>
+                        <div id="video">
+                            <h2 id="record-status">{recordStatus}</h2>
+                            {loading ? (<Loader />) : null}
+                            <Webcam id="webcam" ref={webcamRef}
+                                audio={false}
+                                mirrored={true}
+                                style={{
+                                    width: 640,
+                                    height: 480
+                                }} />
+                        </div>
 
-                    <button id="train" onClick={() => handleTrain()}>Train</button>
-                </div>
-                <div>
-                    <button id="try" onClick={() => startClass()}>Try It Out</button>
-                </div>
-                <div>
-                    <button id="download" onClick={() => handleSave()}>Download Your Model</button>
-                </div>
-                <div>
-                    <button id="delete" onClick={handleReset}>Delete Gestures and Start Again</button>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }
