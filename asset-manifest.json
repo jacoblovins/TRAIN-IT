@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/TRAIN-IT/static/css/main.480253d5.chunk.css",
-    "main.js": "/TRAIN-IT/static/js/main.bb45a1c9.chunk.js",
-    "main.js.map": "/TRAIN-IT/static/js/main.bb45a1c9.chunk.js.map",
-    "runtime-main.js": "/TRAIN-IT/static/js/runtime-main.44e861d4.js",
-    "runtime-main.js.map": "/TRAIN-IT/static/js/runtime-main.44e861d4.js.map",
-    "static/js/2.0b7b65a3.chunk.js": "/TRAIN-IT/static/js/2.0b7b65a3.chunk.js",
-    "static/js/2.0b7b65a3.chunk.js.map": "/TRAIN-IT/static/js/2.0b7b65a3.chunk.js.map",
-    "static/js/3.11f6a4e7.chunk.js": "/TRAIN-IT/static/js/3.11f6a4e7.chunk.js",
-    "static/js/3.11f6a4e7.chunk.js.map": "/TRAIN-IT/static/js/3.11f6a4e7.chunk.js.map",
+    "main.css": "/TRAIN-IT/static/css/main.6ccb0cac.chunk.css",
+    "main.js": "/TRAIN-IT/static/js/main.4f62807e.chunk.js",
+    "main.js.map": "/TRAIN-IT/static/js/main.4f62807e.chunk.js.map",
+    "runtime-main.js": "/TRAIN-IT/static/js/runtime-main.a9ddb2c4.js",
+    "runtime-main.js.map": "/TRAIN-IT/static/js/runtime-main.a9ddb2c4.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/TRAIN-IT/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.b15b9063.chunk.js": "/TRAIN-IT/static/js/2.b15b9063.chunk.js",
+    "static/js/2.b15b9063.chunk.js.map": "/TRAIN-IT/static/js/2.b15b9063.chunk.js.map",
+    "static/js/3.898dc9a3.chunk.js": "/TRAIN-IT/static/js/3.898dc9a3.chunk.js",
+    "static/js/3.898dc9a3.chunk.js.map": "/TRAIN-IT/static/js/3.898dc9a3.chunk.js.map",
     "index.html": "/TRAIN-IT/index.html",
-    "static/css/main.480253d5.chunk.css.map": "/TRAIN-IT/static/css/main.480253d5.chunk.css.map",
-    "static/js/2.0b7b65a3.chunk.js.LICENSE.txt": "/TRAIN-IT/static/js/2.0b7b65a3.chunk.js.LICENSE.txt",
+    "static/css/2.1a02f21c.chunk.css.map": "/TRAIN-IT/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.6ccb0cac.chunk.css.map": "/TRAIN-IT/static/css/main.6ccb0cac.chunk.css.map",
+    "static/js/2.b15b9063.chunk.js.LICENSE.txt": "/TRAIN-IT/static/js/2.b15b9063.chunk.js.LICENSE.txt",
     "static/media/hand.8e1857be.png": "/TRAIN-IT/static/media/hand.8e1857be.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.44e861d4.js",
-    "static/js/2.0b7b65a3.chunk.js",
-    "static/css/main.480253d5.chunk.css",
-    "static/js/main.bb45a1c9.chunk.js"
+    "static/js/runtime-main.a9ddb2c4.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.b15b9063.chunk.js",
+    "static/css/main.6ccb0cac.chunk.css",
+    "static/js/main.4f62807e.chunk.js"
   ]
 }
