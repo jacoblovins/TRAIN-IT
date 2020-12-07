@@ -15,7 +15,7 @@ function Hero() {
                             <h1>TRAIN-IT</h1>
                             <h3>A powerful tool that enables custom hand gesture recognition across intelligent edge applications.</h3>
                             <div>
-                                <StartButton link="/#main-train" label="Get Started" />
+                                <StartButton link="/TRAIN-IT/#main-train" label="Get Started" />
                             </div>
                         </Col>
                         <Col className="hero-img" lg={6} >
