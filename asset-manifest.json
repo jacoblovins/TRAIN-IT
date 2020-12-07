@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/TRAIN-IT/static/css/main.6ccb0cac.chunk.css",
-    "main.js": "/TRAIN-IT/static/js/main.4f62807e.chunk.js",
-    "main.js.map": "/TRAIN-IT/static/js/main.4f62807e.chunk.js.map",
+    "main.js": "/TRAIN-IT/static/js/main.87c2fc2a.chunk.js",
+    "main.js.map": "/TRAIN-IT/static/js/main.87c2fc2a.chunk.js.map",
     "runtime-main.js": "/TRAIN-IT/static/js/runtime-main.a9ddb2c4.js",
     "runtime-main.js.map": "/TRAIN-IT/static/js/runtime-main.a9ddb2c4.js.map",
     "static/css/2.1a02f21c.chunk.css": "/TRAIN-IT/static/css/2.1a02f21c.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.1a02f21c.chunk.css",
     "static/js/2.b15b9063.chunk.js",
     "static/css/main.6ccb0cac.chunk.css",
-    "static/js/main.4f62807e.chunk.js"
+    "static/js/main.87c2fc2a.chunk.js"
   ]
 }
