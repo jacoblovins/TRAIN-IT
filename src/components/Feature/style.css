@@ -1,0 +1,38 @@
+/*--------------------------------------------------------------
+# Feature Section
+--------------------------------------------------------------*/
+
+#feature {
+    background: rgb(248, 248, 248);
+    height: 1200px;
+    padding-left: 30px;
+}
+
+#feature h1 {
+    font-weight: 600;
+}
+
+#feature .fleft {
+    padding-top: 50vh;
+}
+
+
+#feature img {
+    padding-top: 90px;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 991px) {
+    #feature {
+        padding-left: 0;
+    }
+    #feature .fleft {
+        padding-top: 90px;
+    }
+
+    #feature img {
+        padding-top: 5px;
+    }
+    
+}
