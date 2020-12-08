@@ -6,7 +6,8 @@ import { FaCircle } from "react-icons/fa";
 import * as ml5 from 'ml5';
 import * as Webcam from 'react-webcam';
 import Loader from "../components/Loader";
-import Footer from "../components/Footer";
+import Feature from "../components/Feature";
+
 
 let collecting = false;
 let targetLabel;
@@ -208,7 +209,7 @@ function Collect() {
                     </Col>
                 </Row>
             </Container>
-            <Footer/>
+            <Feature/>
         </div>
     )
 }

@@ -12,7 +12,7 @@
 }
   
 .get-started-btn:hover {
-    background: rgba(0, 251, 251, 0.582);
+    background: rgb(0, 189, 189);
     color: #fff;
     text-decoration: none;
 }
