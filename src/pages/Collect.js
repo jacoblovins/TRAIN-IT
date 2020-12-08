@@ -174,7 +174,7 @@ function Collect() {
                             </div>
                             <div className="step">
                                 <h6>Step 2. Hold up your hand to the camera and click Record. Repeat Step 1 & 2 for at least 2 gestures.</h6>
-                                <button className="any-btn" onClick={handleRecord}><FaCircle/> Record</button>
+                                <button className="any-btn" onClick={handleRecord}><FaCircle /> Record</button>
                             </div>
                             <div className="step">
                                 <h6>Step 3. Register your data with Train-It. Watch as the neural network learns your gesture.</h6>
@@ -200,16 +200,12 @@ function Collect() {
                             <Webcam id="webcam" ref={webcamRef}
                                 audio={false}
                                 mirrored={true}
-                                style={{
-                                    width: 640,
-                                    height: 480
-                                }} />
+                            />
                         </div>
-
                     </Col>
                 </Row>
             </Container>
-            <Feature/>
+            <Feature />
         </div>
     )
 }
